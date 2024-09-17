@@ -1,0 +1,161 @@
+/* Geral */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Imagem de Fundo e Sobreposição */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://liga.record.pt/common/img/Logo_LigaRecord_SQ.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1; /* Coloca a imagem atrás do conteúdo */
+    opacity: 0.6; /* Ajusta a opacidade da imagem de fundo */
+}
+
+/* Sobreposição Colorida */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Cor preta com opacidade para criar contraste */
+    z-index: -1; /* Garante que a sobreposição fique atrás do conteúdo */
+}
+
+/* Container Principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    position: relative;
+    z-index: 1; /* Garante que o container fique sobre a sobreposição */
+}
+
+/* Cabeçalhos */
+h1 {
+    font-size: 2.5em;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Sombra de texto */
+}
+
+h2 {
+    font-size: 1.75em;
+    color: #495057;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+}
+
+/* Formulários */
+form {
+    margin-bottom: 20px;
+}
+
+/* Campos de Formulário */
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9em; /* Tamanho da fonte menor */
+}
+
+select {
+    background-color: #ffffff;
+    max-width: 200px; /* Largura máxima para seletores */
+}
+
+
+/* Seção de Tabela */
+table {
+    width: 100%; /* Faz a tabela ocupar toda a largura do container */
+    max-width: 800px; /* Largura máxima da tabela para evitar que fique muito larga */
+    margin: 20px auto; /* Centraliza a tabela e adiciona margem superior e inferior */
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+/* Lista */
+#scoreboardList, #selectedPlayersList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#scoreboardList li, #selectedPlayersList li {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#scoreboardList li:last-child, #selectedPlayersList li:last-child {
+    border-bottom: none;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Layout dos Campos de Registro de Eventos */
+#eventSection {
+    margin: 20px auto;
+    max-width: 800px; /* Largura máxima para a seção de eventos */
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#eventForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Cria colunas responsivas */
+    gap: 10px; /* Espaçamento entre os campos */
+}
+
+#eventForm td {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liga Record</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        select {
+            margin-right: 10px;
+        }
+        #eventSection {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        
+        
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+        #calculatePointsButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Liga Record - Pontuação de Jogadores</h1>
+
+    <!-- Selecionar Jogadores/Treinadores -->
+    <h2>Selecionar Jogador</h2>
+    <form id="selectPlayerForm">
+        <!-- Seleção da Equipe -->
+        <label for="teamName">Nome da Equipe:</label>
+        <select id="teamName" required>
+            <option value="">Selecione uma equipe</option>
+            <option value="Benfica">Benfica</option>
+            <option value="Porto">Porto</option>
+            <option value="Sporting">Sporting</option>
+            <option value="Arouca">Arouca</option>
+        </select>
+
+        <!-- Seleção do Jogador/Treinador baseado na equipe -->
+        <label for="playerName">Nome do Jogador:</label>
+        <select id="playerName" required>
+            <option value="">Selecione um jogador</option>
+        </select>
+
+        <!--<button type="submit">Selecionar</button> -->
+    </form>
+
+    <!-- Seção para Entrar com Eventos -->
+    <div id="eventSection" style="display: none;">
+        <h2>Registar Eventos para o Jogador</h2>
+        <form id="eventForm">
+            <table>
+                <tr>
+                    <td><label for="goloMarcado">Golos Marcados:</label></td>
+                    <td><select id="goloMarcado">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="goloSofrido">Golos Sofridos:</label></td>
+                    <td><select id="goloSofrido">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select></td>
+                </tr>
+                
+                <tr>
+                    <td><label for="penaltiDefendido">Pénalti Defendido:</label></td>
+                    <td><select id="penaltiDefendido">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="penaltiFalhado">Pénalti Falhado:</label></td>
+                    <td><select id="penaltiFalhado">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="penaltiConvertido">Pénalti Convertido:</label></td>
+                    <td><select id="penaltiConvertido">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select></td>
+                </tr>
+      
+                <tr>
+                    <td><label for="vitoria">Vitória da Equipe:</label></td>
+                    <td><select id="vitoria">
+                        <option value="Sim" selected>Sim</option>
+                        <option value="Não">Não</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="cartaoVermelho">Cartão Vermelho:</label></td>
+                    <td><select id="cartaoVermelho">
+                        <option value="Não" selected>Não</option>
+                        <option value="Acumulação">Acumulação</option>
+                        <option value="Direto">Direto</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="autogol">Autogolo:</label></td>
+                    <td><select id="autogol">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="jogadorDaSemana">Jogador da Semana:</label></td>
+                    <td><select id="jogadorDaSemana">
+                        <option value="Não" selected>Não</option>
+                        <option value="Sim">Sim</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="capitao">Capitão:</label></td>
+                    <td><select id="capitao">
+                        <option value="Não" selected>Não</option>
+                        <option value="Sim">Sim</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="pontuacaoRecord">Pontuação Record:</label></td>
+                    <td><select id="pontuacaoRecord">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select></td>
+                </tr>
+            </table>
+            <!--<button type="submit">Calcular Pontos</button>-->
+            <button id="calculatePointsButton">Calcular Pontos</button>
+        </form>
+  <!-- Mostrar Pontuações -->
+  <div id="scoreboard">
+    
+    <h2>Pontuações</h2>
+    <table id="scoreboardTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Equipe</th>
+                <th>Pontos</th>
+            </tr>
+        </thead>
+        <tbody id="scoreboardList">
+            <!-- Linhas serão adicionadas dinamicamente pelo JavaScript -->
+        </tbody>
+    </table>
+    <div id="totalPointsContainer">
+        <h3>Total de Pontos: <span id="totalPoints">0</span></h3>
+    </div>
+</div>
+</div>
+<script>
+// Array para armazenar os jogadores
+let players = [];
+
+// Função para atualizar a tabela
+function updateTable() {
+    const tableBody = document.getElementById('scoreboardList');
+    tableBody.innerHTML = '';
+
+    players.forEach(player => {
+        const row = document.createElement('tr');
+        row.setAttribute('data-player-id', player.id);
+
+        row.innerHTML = `
+            <td>${player.name}</td>
+            <td>${player.team}</td>
+            <td>${player.points}</td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+
+    updateTotalPoints();
+}
+
+// Função para atualizar o total de pontos
+function updateTotalPoints() {
+    const totalPoints = players.reduce((sum, player) => sum + player.points, 0);
+    document.getElementById('totalPoints').textContent = totalPoints;
+}
+
+
+// Adicionar jogador ao formulário
+document.getElementById('playerForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('playerName').value;
+    const team = document.getElementById('playerTeam').value;
+    const points = parseInt(document.getElementById('playerPoints').value);
+
+    // Cria um ID único para o jogador (simplesmente usando um timestamp)
+    const id = `player${Date.now()}`;
+
+    // Adiciona o novo jogador ao array
+    players.push({ id, name, team, points });
+
+    // Limpa o formulário
+    document.getElementById('playerForm').reset();
+
+    // Atualiza a tabela com os novos dados
+    updateTable();
+});
+
+// Inicializar a tabela vazia
+updateTable();
+</script>
+
+<script src="app.js"></script>
+    
+</body>
+</html>
